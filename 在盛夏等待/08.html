@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频播放器-bilibili</title>
+</head>
+<body></body>
+<style>
+    .a{
+       background-color: black;
+       transform: rotate(90deg); 
+       transform-origin: 180px 180px;
+       height: 360px;
+       width: 574px;
+       position:absolute; 
+       left:0px; 
+       top:0px;
+    }
+</style>
+<iframe class="a" src="//player.bilibili.com/player.html?isOutside=true&bvid=BV1nx411F7Mp&p=8&autoplay=0&hasmutebutton=1"
+scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+    <!--
+    bilibili视频嵌入属性说明
+    bvid:视频的bv号
+    aid:视频的av号
+        av,bv二选一
+    cid:视频的cv号,一般建议删除,以确保p属性的正常使用
+    p:视频分p
+    autoplay:是否自动播放
+    hasmutebutton:是否有静音按钮
+    -->
+    
+    <!--
+    在这里,<iframe>的sandbox属性
+        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+    规定了网站不允许跳转
+    -->
+</body>
+</html>
