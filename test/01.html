@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频播放器-bilibili</title>
+</head>
+<body></body>
+<style>
+    .a{
+       background-color: black;
+       transform: rotate(90deg); /*旋转90度*/
+       transform-origin: 180px 180px; /*圆心位置,决定旋转时的圆心*/
+       height: 360px; /*旋转前的高度*/
+       width: 574px; /*旋转前的宽度*/
+       position:absolute; 
+       left:0px; 
+       top:0px;
+       /*后面的 position , left , top 也是跟旋转有关的,但具体有什么用已经忘了,不过千万不要删*/
+    }
+</style>
+<!--
+ 这里的scale已经写好了,对应某手机的屏幕
+-->
+<iframe class="a" src="//player.bilibili.com/player.html?isOutside=true&bvid=BV1SC4y157dB&p=1&autoplay=0&hasmutebutton=1"
+scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
+    <!--
+    bilibili视频嵌入属性说明
+    <iframe class="a" src="//player.bilibili.com/player.html?isOutside=true&bvid=BV__________&p=_____&autoplay=0&hasmutebutton=1"
+    bvid:视频的bv号
+    aid:视频的av号 
+        av,bv二选一
+    cid:视频的cv号,一般建议删除,以确保p属性的正常使用
+    p:视频分p
+    __以下选项 0=false 1=true
+    autoplay:是否自动播放
+    danmaku:是否开关弹幕
+    hasmutebutton:是否有静音按钮
+    -->
+    
+    <!--
+    在这里,<iframe>的sandbox属性
+        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+    规定了网站不允许跳转
+    -->
+</body>
+</html>
