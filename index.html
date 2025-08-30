@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello world!</title>
+    <style>
+        * {
+            user-select: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --diameter: calc(min(100vh, 100vw) * 0.6);
+        }
+
+        body {
+            background-color: #080808;
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .circle {
+            width: var(--diameter);
+            height: var(--diameter);
+            border-radius: 100%;
+            background-color: #666666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('lgf.png');
+            background-size: cover;
+        }
+
+        #title{
+            color: white;
+            font-size: calc(var(--diameter) * 0.08);
+        }
+
+        .content{
+            color: white;
+            font-size: calc(var(--diameter) * 0.05);
+            text-align: center;
+            font-weight: normal;
+        }
+        .content span{
+            color: #eeeeee;
+            background-color: #333333;
+            font-size: calc(var(--diameter) * 0.038);
+            border: #eeeeee 1px solid;
+            border-radius: calc(var(--diameter) * 0.005);
+            font-family: monospace;
+        }
+
+        .name{
+            color: #aaaaaa;
+            font-size: calc(var(--diameter) * 0.038);
+            text-align: center;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle">
+        <div class="inside">
+            <h1 id="title">暑假智能倒计时</h1>
+            <h2 class="content">距离暑假结束还剩:</h2>
+            <h2 class="content"><span id="hour"></span>  小时</h2>
+            <h2 class="content"><span id="min"></span>  分</h2> 
+            <h2 class="content"><span id="sec"></span>  秒</h2> 
+            <h3 class="name">作者：某位热心学生</h3>
+        </div>
+    </div>
+
+    <script>
+        // 设置开学时间：2025年8月31日17:30
+        const endTime = new Date('2025-08-31T17:30:00');
+        
+        function updateCountdown() {
+            const now = new Date();
+            const diff = endTime - now;
+            
+            if (diff <= 0) {
+                document.getElementById('hour').textContent = '0 小时';
+                document.getElementById('min').textContent = '0 分';
+                document.getElementById('sec').textContent = '0 秒';
+                return;
+            }
+            
+            // 计算剩余的小时、分钟和秒
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // 更新页面显示
+            document.getElementById('hour').textContent = hours;
+            document.getElementById('min').textContent = minutes;
+            document.getElementById('sec').textContent = seconds;
+        }
+        
+        // 初始调用一次
+        updateCountdown();
+        
+        // 每秒更新一次倒计时
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
